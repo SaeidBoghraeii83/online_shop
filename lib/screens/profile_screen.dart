@@ -1,144 +1,78 @@
 import 'package:flutter/material.dart';
 
-class GettingProductItem extends StatelessWidget {
-  const GettingProductItem({super.key});
+class Profile_Screen extends StatelessWidget {
+  const Profile_Screen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Column(
-          children: [
-            Container(
-              width: 160,
-              height: 163,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
+    return Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverPadding(
+              padding: EdgeInsetsGeometry.symmetric(
+                horizontal: 25,
+                vertical: 10,
+              ),
+              sliver: SliverToBoxAdapter(
+                child: Container(
+                  height: 46,
+                  decoration: BoxDecoration(
+                    color: Color(0xffFFFFFF),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Stack(
+                    alignment: AlignmentDirectional.center,
+                    children: [
+                      Positioned(
+                        left: 20,
+                        child: Image.asset('images/icon_apple_blue.png'),
+                      ),
+                      Text(
+                        'حساب کاربری',
+                        style: TextStyle(
+                          color: Color(0xff3B5EDF),
+                          fontFamily: 'SM',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  Positioned(top: 12, child: _getImageProduct()),
-                  Positioned(
-                    top: 12,
-                    right: 8,
-                    child: Image.asset('images/active_fav_product.png'),
-                  ),
-
-                  Positioned(
-                    bottom: 40,
-                    left: 6,
-                    child: _getDiscountPriceProduct(),
-                  ),
-
-                  Positioned(right: 10, bottom: 10, child: _getNameProduct()),
-                ],
+            ),
+            SliverPadding(
+              padding: EdgeInsetsGeometry.symmetric(vertical: 30),
+              sliver: SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    Text(
+                      ' Flutter Developer : سعید بقرائی',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'SM',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      '+9809190073472',
+                      style: TextStyle(
+                        color: Color(0xff858585),
+                        fontFamily: 'SM',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
         ),
-
-        _getPriceProduct(),
-      ],
-    );
-  }
-
-  Widget _getPriceProduct() {
-    // بخش قیمت محصول
-    return Container(
-      width: 160,
-      height: 53,
-      decoration: BoxDecoration(
-        color: Colors.blueAccent,
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(15),
-          bottomLeft: Radius.circular(15),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            'تومان',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-              fontSize: 12,
-              fontFamily: 'SM',
-            ),
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '۵٬۳۵۰٬۰۰۰',
-                style: TextStyle(
-                  color: Colors.white,
-                  decoration: TextDecoration.lineThrough,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                  fontFamily: 'SM',
-                ),
-              ),
-              Text(
-                '۴۵٬۳۵۰٬۰۰۰',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontFamily: 'SM',
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-
-          SizedBox(
-            width: 20,
-            height: 20,
-            child: Image.asset('images/icon_right_arrow_cricle.png'),
-          ),
-        ],
       ),
     );
   }
-
-  Image _getImageProduct() => Image.asset('images/iphone.png');
-}
-
-Widget _getDiscountPriceProduct() {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(15),
-      color: Colors.red,
-    ),
-    width: 29,
-    height: 18,
-    child: Text(
-      textAlign: TextAlign.center,
-      '%3',
-      style: TextStyle(
-        color: Colors.white,
-        fontFamily: 'SM',
-        fontSize: 12,
-        fontWeight: FontWeight.w700,
-      ),
-    ),
-  );
-}
-
-Widget _getNameProduct() {
-  return Text(
-    'آیفون ۱۳ پرومکس',
-    style: TextStyle(
-      color: Colors.black,
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      fontFamily: 'SM',
-    ),
-  );
 }

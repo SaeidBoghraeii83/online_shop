@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop/screens/category_screen.dart';
+import 'package:online_shop/screens/home_screen.dart';
+import 'package:online_shop/screens/profile_screen.dart';
+import 'package:online_shop/screens/shopping_basket.dart';
 
 class Main_Screen extends StatefulWidget {
   const Main_Screen({super.key});
@@ -74,10 +78,10 @@ class _Main_ScreenState extends State<Main_Screen> {
 
   List<Widget> getLayout() {
     return <Widget>[
-      // Profile_Screen(),
-      //Shopping_Basket(),
-      //Category_Screen(),
-      //HomeScreen(),
+      Profile_Screen(),
+      Shopping_Basket(),
+      Category_Screen(),
+      HomeScreen(),
     ];
   }
 }
