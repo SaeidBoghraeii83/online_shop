@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_shop/bloc/category/category_bloc.dart';
 import 'package:online_shop/screens/category_screen.dart';
 import 'package:online_shop/screens/home_screen.dart';
 import 'package:online_shop/screens/profile_screen.dart';
@@ -80,7 +82,10 @@ class _Main_ScreenState extends State<Main_Screen> {
     return <Widget>[
       Profile_Screen(),
       Shopping_Basket(),
-      Category_Screen(),
+      BlocProvider(
+        create: (context) => CategoryBloc(),
+        child: Category_Screen(),
+      ),
       HomeScreen(),
     ];
   }

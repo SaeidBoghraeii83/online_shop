@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop/data/di/di.dart';
 import 'package:online_shop/screens/main_screen.dart';
 
-void main() {
+void main() async {
+  await getItInit();
   runApp(
     MaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: Color(0xffEEEEEE)),
