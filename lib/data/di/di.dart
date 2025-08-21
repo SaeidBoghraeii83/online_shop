@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:online_shop/data/dataSorce/banner_dataSource.dart';
 import 'package:online_shop/data/dataSorce/category_dataSource.dart';
 import 'package:online_shop/data/repository/category_repository.dart';
 
@@ -14,4 +15,6 @@ Future<void> getItInit() async {
     () => CategoryRemoteDataSource(),
   );
   locator.registerFactory<ICategoryRepository>(() => CategoryRepository());
+
+  locator.registerFactory<IBannerDatasource>(() => BannerDataSource());
 }
