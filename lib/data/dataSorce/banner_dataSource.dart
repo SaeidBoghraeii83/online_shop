@@ -7,7 +7,7 @@ abstract class IBannerDatasource {
   Future<List<BannerModel>> getBanner();
 }
 
-class BannerDataSource extends IBannerDatasource {
+class BannerRemoteDataSource extends IBannerDatasource {
   // زدن ریکوست برای گرفتن مقادیر بنر از سرور
   final Dio _dio = locator.get();
   @override
